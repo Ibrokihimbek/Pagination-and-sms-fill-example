@@ -36,6 +36,7 @@ class _PinputExampleState extends State<PinputExample> with CodeAutoFill {
     listenForCode();
 
     SmsAutoFill().getAppSignature.then((signature) {
+      print("MY DEVICE SIGNATURE:$signature");
       setState(() {
         appSignature = signature;
         // phone number

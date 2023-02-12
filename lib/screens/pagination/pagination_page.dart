@@ -21,8 +21,6 @@ class _PaginationPageState extends State<PaginationPage> {
   void initState() {
     _loadMore(0);
     scrollController.addListener(() {
-      print("CURRENT LIST PIXEL:${scrollController.position.pixels}");
-      print("MAX LIST PIXEL:${scrollController.position.maxScrollExtent}");
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         _loadMore(page);
