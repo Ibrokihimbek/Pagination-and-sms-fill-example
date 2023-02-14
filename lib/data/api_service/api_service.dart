@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pagination_vs_sms_fill/data/models/tendr_model.dart';
 
 
-class MyRepository {
+class ApiService {
   static Future<Tendr> getOrdersList() async {
     Dio dio = Dio();
 

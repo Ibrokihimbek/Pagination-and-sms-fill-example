@@ -3,6 +3,7 @@ import 'package:pagination_vs_sms_fill/screens/pagination/pagination_page.dart';
 import 'package:pagination_vs_sms_fill/utils/gradient_text.dart';
 import 'package:pinput/pinput.dart';
 import 'package:sms_autofill/sms_autofill.dart';
+import 'package:telephony/telephony.dart';
 
 class PinputExample extends StatefulWidget {
   const PinputExample({Key? key}) : super(key: key);
@@ -13,6 +14,9 @@ class PinputExample extends StatefulWidget {
 
 class _PinputExampleState extends State<PinputExample> with CodeAutoFill {
   final pinController = TextEditingController();
+  final Telephony telephony = Telephony.instance;
+  TextEditingController phoneController = TextEditingController();
+
   final focusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   String? appSignature;
@@ -80,7 +84,39 @@ class _PinputExampleState extends State<PinputExample> with CodeAutoFill {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: 180),
+              const SizedBox(height: 130),
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: TextFormField(
+                  controller: phoneController,
+                  keyboardType: TextInputType.phone,
+                  textInputAction: TextInputAction.next,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (phone) => phone != null && phone.length < 13
+                      ? "Yaroqli raqam kiriting"
+                      : null,
+                  decoration: const InputDecoration(
+                    labelText: '+998901234567',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                      borderSide: BorderSide(
+                        width: 1,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ),
               Directionality(
                 textDirection: TextDirection.ltr,
                 child: Pinput(
@@ -134,11 +170,14 @@ class _PinputExampleState extends State<PinputExample> with CodeAutoFill {
               const SizedBox(height: 30),
               InkWell(
                 onTap: () {
-                  focusNode.unfocus();
-                  if (formKey.currentState!.validate()) {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (_) => PaginationPage()));
-                  }
+                  // focusNode.unfocus();
+                  telephony.sendSms(
+                      to: "+998909343621", message: "Assalomu alaykum");
+
+                  // if (pinController.text.isNotEmpty) {
+                  //   Navigator.pushReplacement(context,
+                  //       MaterialPageRoute(builder: (_) => PaginationPage()));
+                  // }
                 },
                 child: Container(
                   width: 200,
