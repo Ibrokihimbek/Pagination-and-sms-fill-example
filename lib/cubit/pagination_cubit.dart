@@ -6,7 +6,6 @@ import 'package:pagination_vs_sms_fill/data/models/tendr_model.dart';
 class PaginationCubit extends Cubit<PaginationState> {
   PaginationCubit() : super(InitialState());
 
-  Tendr? tendr;
   List<Datum> data = [];
   bool isFinished = false;
 

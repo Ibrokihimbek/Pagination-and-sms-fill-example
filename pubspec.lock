@@ -172,18 +172,18 @@ packages:
     dependency: transitive
     description:
       name: pin_input_text_field
-      sha256: a6c3f1f5cb41c44352046773fe26aa61af870b908f84a7257ea2297a782a9fbd
+      sha256: "712ac2dbf5098443ce90a2e1e6850654037a471bdfc9333b4e0a15e678642e39"
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.0"
+    version: "4.5.0"
   pinput:
     dependency: "direct main"
     description:
       name: pinput
-      sha256: e6aabd1571dde622f9b942f62ac2c80f84b0b50f95fa209a93e78f7d621e1f82
+      sha256: "1773743c188cdd2f8d0398ea708ec72645bb41ac9311755c4f7bb03a4184bdcf"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.23"
+    version: "2.2.31"
   platform:
     dependency: transitive
     description:
@@ -217,10 +217,10 @@ packages:
     dependency: "direct main"
     description:
       name: sms_autofill
-      sha256: b4985f30527d42604a0bcf6ddd4793dd0415322e26f62bac1d487e2a36defa7c
+      sha256: "2eb159f53ed7d76002d6c15cad99e14dbd5f997f3bb7f9bcad9bd44ba5fcd6c3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.0"
   source_span:
     dependency: transitive
     description:
